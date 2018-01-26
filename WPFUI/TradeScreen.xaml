@@ -1,0 +1,106 @@
+﻿<Window x:Class="WPFUI.TradeScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        d:DataContext="{d:DesignInstance viewModels:GameSession}"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        FontSize="11pt"
+        Title="Trade Screen" Height="480" Width="640">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0"
+               Grid.ColumnSpan="2"
+               HorizontalAlignment="Center"
+               Content="{Binding CurrentTrader.Name}"/>
+        
+        <Label Grid.Row="1" Grid.Column="0"
+               HorizontalAlignment="Center"
+               Content="Your Inventory"/>
+        <Label Grid.Row="1" Grid.Column="1"
+               HorizontalAlignment="Center"
+               Content="Trader's Inventory"/>
+        
+        <DataGrid Grid.Row="2" Grid.Column="0"
+                  Margin="10"
+                  ItemsSource="{Binding CurrentPlayer.Inventory}"
+                  AutoGenerateColumns="False"
+                  HeadersVisibility="Column"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  VerticalScrollBarVisibility="Auto">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Description"
+                                    IsReadOnly="True"
+                                    Width="*"
+                                    Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Price"
+                                    IsReadOnly="True"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Price}"/>
+                <DataGridTemplateColumn MinWidth="75">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="OnClick_Sell"
+                                    Width="55"
+                                    Content="Sell"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <DataGrid Grid.Row="2" Grid.Column="1"
+                  Margin="10"
+                  ItemsSource="{Binding CurrentTrader.Inventory}"
+                  AutoGenerateColumns="False"
+                  HeadersVisibility="Column"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  VerticalScrollBarVisibility="Auto">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Description"
+                                    IsReadOnly="True"
+                                    Width="*"
+                                    Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Price"
+                                    IsReadOnly="True"
+                                    Width="Auto"
+                                    Binding="{Binding Path=Price}"/>
+                <DataGridTemplateColumn MinWidth="75">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="OnClick_Buy"
+                                    Width="55"
+                                    Content="Buy"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Grid.Row="3" Grid.Column="1"
+                HorizontalAlignment="Right"
+                Width="75"
+                Content="Close"
+                Click="OnClick_Close"/>
+    </Grid>
+</Window>
