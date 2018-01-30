@@ -7,10 +7,10 @@ namespace Engine.Factories
     {
         public static Monster GetMonster(int monsterID)
         {
-            switch (monsterID)
+            switch(monsterID)
             {
                 case 1:
-                    Monster snake = 
+                    Monster snake =
                         new Monster("Snake", "Snake.png", 4, 4, 1, 2, 5, 1);
 
                     AddLootItem(snake, 9001, 25);
@@ -19,7 +19,7 @@ namespace Engine.Factories
                     return snake;
 
                 case 2:
-                    Monster rat = 
+                    Monster rat =
                         new Monster("Rat", "Rat.png", 5, 5, 1, 2, 5, 1);
 
                     AddLootItem(rat, 9003, 25);
@@ -28,7 +28,7 @@ namespace Engine.Factories
                     return rat;
 
                 case 3:
-                    Monster giantSpider = 
+                    Monster giantSpider =
                         new Monster("Giant Spider", "GiantSpider.png", 10, 10, 1, 4, 10, 3);
 
                     AddLootItem(giantSpider, 9005, 25);
@@ -43,9 +43,9 @@ namespace Engine.Factories
 
         private static void AddLootItem(Monster monster, int itemID, int percentage)
         {
-            if (RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
+            if(RandomNumberGenerator.NumberBetween(1, 100) <= percentage)
             {
-                monster.Inventory.Add(new ItemQuantity(itemID, 1));
+                monster.AddItemToInventory(ItemFactory.CreateGameItem(itemID));
             }
         }
     }
