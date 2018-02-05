@@ -16,7 +16,7 @@ namespace Engine.Models
             get { return _name; }
             set
             {
-                _name = value; 
+                _name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
@@ -26,7 +26,7 @@ namespace Engine.Models
             get { return _currentHitPoints; }
             set
             {
-                _currentHitPoints = value; 
+                _currentHitPoints = value;
                 OnPropertyChanged(nameof(CurrentHitPoints));
             }
         }
@@ -36,7 +36,7 @@ namespace Engine.Models
             get { return _maximumHitPoints; }
             set
             {
-                _maximumHitPoints = value; 
+                _maximumHitPoints = value;
                 OnPropertyChanged(nameof(MaximumHitPoints));
             }
         }
@@ -46,12 +46,14 @@ namespace Engine.Models
             get { return _gold; }
             set
             {
-                _gold = value; 
+                _gold = value;
                 OnPropertyChanged(nameof(Gold));
             }
         }
 
         public ObservableCollection<GameItem> Inventory { get; set; }
+
+        public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; set; }
 
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
@@ -59,11 +61,26 @@ namespace Engine.Models
         protected LivingEntity()
         {
             Inventory = new ObservableCollection<GameItem>();
+            GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
 
         public void AddItemToInventory(GameItem item)
         {
             Inventory.Add(item);
+
+            if(item.IsUnique)
+            {
+                GroupedInventory.Add(new GroupedInventoryItem(item, 1));
+            }
+            else
+            {
+                if(!GroupedInventory.Any(gi => gi.Item.ItemTypeID == item.ItemTypeID))
+                {
+                    GroupedInventory.Add(new GroupedInventoryItem(item, 0));
+                }
+
+                GroupedInventory.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
+            }
 
             OnPropertyChanged(nameof(Weapons));
         }
@@ -71,6 +88,21 @@ namespace Engine.Models
         public void RemoveItemFromInventory(GameItem item)
         {
             Inventory.Remove(item);
+
+            GroupedInventoryItem groupedInventoryItemToRemove =
+                GroupedInventory.FirstOrDefault(gi => gi.Item == item);
+
+            if(groupedInventoryItemToRemove != null)
+            {
+                if(groupedInventoryItemToRemove.Quantity == 1)
+                {
+                    GroupedInventory.Remove(groupedInventoryItemToRemove);
+                }
+                else
+                {
+                    groupedInventoryItemToRemove.Quantity--;
+                }
+            }
 
             OnPropertyChanged(nameof(Weapons));
         }
