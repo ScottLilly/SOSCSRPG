@@ -98,7 +98,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public Weapon CurrentWeapon { get; set; }
+        public GameItem CurrentWeapon { get; set; }
 
         public bool HasLocationToNorth => 
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
