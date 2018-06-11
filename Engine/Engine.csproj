@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\AttackWithWeapon.cs" />
+    <Compile Include="Actions\BaseAction.cs" />
     <Compile Include="Actions\Heal.cs" />
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="BaseNotificationClass.cs" />
