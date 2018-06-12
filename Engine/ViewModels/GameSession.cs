@@ -130,6 +130,7 @@ namespace Engine.ViewModels
             }
 
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
+            CurrentPlayer.LearnRecipe(RecipeFactory.RecipeByID(1));
 
             CurrentWorld = WorldFactory.CreateWorld();
 
