@@ -131,6 +131,9 @@ namespace Engine.ViewModels
 
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
             CurrentPlayer.LearnRecipe(RecipeFactory.RecipeByID(1));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3001));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3002));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3003));
 
             CurrentWorld = WorldFactory.CreateWorld();
 
@@ -181,14 +184,7 @@ namespace Engine.ViewModels
                 {
                     if(CurrentPlayer.HasAllTheseItems(quest.ItemsToComplete))
                     {
-                        // Remove the quest completion items from the player's inventory
-                        foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
-                        {
-                            for(int i = 0; i < itemQuantity.Quantity; i++)
-                            {
-                                CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
-                            }
-                        }
+                        CurrentPlayer.RemoveItemsFromInventory(quest.ItemsToComplete);
 
                         RaiseMessage("");
                         RaiseMessage($"You completed the '{quest.Name}' quest");
@@ -273,6 +269,32 @@ namespace Engine.ViewModels
         public void UseCurrentConsumable()
         {
             CurrentPlayer.UseCurrentConsumable();
+        }
+
+        public void CraftItemUsing(Recipe recipe)
+        {
+            if(CurrentPlayer.HasAllTheseItems(recipe.Ingredients))
+            {
+                CurrentPlayer.RemoveItemsFromInventory(recipe.Ingredients);
+
+                foreach(ItemQuantity itemQuantity in recipe.OutputItems)
+                {
+                    for(int i = 0; i < itemQuantity.Quantity; i++)
+                    {
+                        GameItem outputItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                        CurrentPlayer.AddItemToInventory(outputItem);
+                        RaiseMessage($"You craft 1 {outputItem.Name}");
+                    }
+                }
+            }
+            else
+            {
+                RaiseMessage("You do not have the required ingredients:");
+                foreach(ItemQuantity itemQuantity in recipe.Ingredients)
+                {
+                    RaiseMessage($"  {itemQuantity.Quantity} {ItemFactory.ItemName(itemQuantity.ItemID)}");
+                }
+            }
         }
 
         private void OnCurrentPlayerPerformedAction(object sender, string result)
