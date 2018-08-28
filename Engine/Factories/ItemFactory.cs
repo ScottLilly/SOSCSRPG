@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
 using Engine.Actions;
 using Engine.Models;
+using Engine.Shared;
 
 namespace Engine.Factories
 {
@@ -51,26 +51,26 @@ namespace Engine.Factories
             foreach(XmlNode node in nodes)
             {
                 GameItem.ItemCategory itemCategory = DetermineItemCategory(node.Name);
-
+                
                 GameItem gameItem =
                     new GameItem(itemCategory,
-                                 GetXmlAttributeAsInt(node, "ID"),
-                                 GetXmlAttributeAsString(node, "Name"),
-                                 GetXmlAttributeAsInt(node, "Price"),
+                                 node.AttributeAsInt("ID"),
+                                 node.AttributeAsString("Name"),
+                                 node.AttributeAsInt("Price"),
                                  itemCategory == GameItem.ItemCategory.Weapon);
 
                 if(itemCategory == GameItem.ItemCategory.Weapon)
                 {
                     gameItem.Action =
                         new AttackWithWeapon(gameItem,
-                                             GetXmlAttributeAsInt(node, "MinimumDamage"),
-                                             GetXmlAttributeAsInt(node, "MaximumDamage"));
+                                             node.AttributeAsInt("MinimumDamage"),
+                                             node.AttributeAsInt("MaximumDamage"));
                 }
                 else if(itemCategory == GameItem.ItemCategory.Consumable)
                 {
                     gameItem.Action =
                         new Heal(gameItem,
-                                 GetXmlAttributeAsInt(node, "HitPointsToHeal"));
+                                 node.AttributeAsInt("HitPointsToHeal"));
                 }
 
                 _standardGameItems.Add(gameItem);
@@ -88,28 +88,6 @@ namespace Engine.Factories
                 default:
                     return GameItem.ItemCategory.Miscellaneous;
             }
-        }
-
-        private static int GetXmlAttributeAsInt(XmlNode node, string attributeName)
-        {
-            return Convert.ToInt32(GetXmlAttribute(node, attributeName));
-        }
-
-        private static string GetXmlAttributeAsString(XmlNode node, string attributeName)
-        {
-            return GetXmlAttribute(node, attributeName);
-        }
-
-        private static string GetXmlAttribute(XmlNode node, string attributeName)
-        {
-            XmlAttribute attribute = node.Attributes?[attributeName];
-
-            if(attribute == null)
-            {
-                throw new ArgumentException($"The attribute '{attributeName}' does not exist");
-            }
-
-            return attribute.Value;
         }
     }
 }
