@@ -112,7 +112,8 @@
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
-                           Source="{Binding CurrentLocation.ImageName}"/>
+                           Source="{Binding CurrentLocation.ImageName, 
+                                            Converter={StaticResource FileToBitmapConverter}}"/>
 
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
@@ -144,7 +145,7 @@
                            VerticalAlignment="Center"
                            Height="125"
                            Width="125"
-                           Source="{Binding CurrentMonster.ImageName}" />
+                           Source="{Binding CurrentMonster.ImageName}"/>
 
                     <StackPanel Grid.Row="2"
                                 Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"

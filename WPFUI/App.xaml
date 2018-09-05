@@ -1,9 +1,11 @@
 ﻿<Application x:Class="WPFUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFUI"
+             xmlns:converters="clr-namespace:WPFUI.CustomConverters"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
-         
+         <converters:FileToBitmapConverter x:Key="FileToBitmapConverter"/>
     </Application.Resources>
+
 </Application>
