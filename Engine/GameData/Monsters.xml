@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Monsters RootImagePath="/Images/Monsters/">
+  <Monster ID="1" Name="Snake" MaximumHitPoints="4" WeaponID="1501" RewardXP="5" Gold="1" ImageName="Snake.png">
+    <LootItems>
+      <LootItem ID="9001" Percentage="25"/>
+      <LootItem ID="9002" Percentage="75"/>
+    </LootItems>
+  </Monster>
+  <Monster ID="2" Name="Rat" MaximumHitPoints="5" WeaponID="1502" RewardXP="5" Gold="1" ImageName="Rat.png">
+    <LootItems>
+      <LootItem ID="9003" Percentage="25"/>
+      <LootItem ID="9004" Percentage="75"/>
+    </LootItems>
+  </Monster>
+  <Monster ID="3" Name="Giant Spider" MaximumHitPoints="10" WeaponID="1503" RewardXP="10" Gold="3" ImageName="GiantSpider.png">
+    <LootItems>
+      <LootItem ID="9005" Percentage="25"/>
+      <LootItem ID="9006" Percentage="75"/>
+    </LootItems>
+  </Monster>
+</Monsters>
