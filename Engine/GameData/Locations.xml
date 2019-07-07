@@ -8,14 +8,14 @@
   </Location>
   <Location X="-1" Y="-1" Name="Farmer's House" ImageName="Farmhouse.png">
     <Description><![CDATA[This is the house of your neighbor, Farmer Ted.]]></Description>
-    <Trader Name="Farmer Ted"/>
+    <Trader ID="2"/>
   </Location>
   <Location X="0" Y="-1" Name="Home" ImageName="Home.png">
     <Description><![CDATA[This is your home.]]></Description>
   </Location>
   <Location X="-1" Y="0" Name="Trading Shop" ImageName="Trader.png">
     <Description><![CDATA[The shop of Susan, the trader.]]></Description>
-    <Trader Name="Susan"/>
+    <Trader ID="1"/>
   </Location>
   <Location X="0" Y="0" Name="Town Square" ImageName="TownSquare.png">
     <Description><![CDATA[You see a fountain here.]]></Description>
@@ -34,7 +34,7 @@
     <Quests>
       <Quest ID="1"/>
     </Quests>
-    <Trader Name="Pete the Herbalist"/>
+    <Trader ID="3"/>
   </Location>
   <Location X="0" Y="2" Name="Herbalist's Garden" ImageName="HerbalistsGarden.png">
     <Description><![CDATA[There are many plants here, with snakes hiding behind them.]]></Description>
