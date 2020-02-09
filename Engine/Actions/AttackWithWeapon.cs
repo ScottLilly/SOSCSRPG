@@ -16,12 +16,12 @@ namespace Engine.Actions
                 throw new ArgumentException($"{itemInUse.Name} is not a weapon");
             }
 
-            if(_minimumDamage < 0)
+            if(minimumDamage < 0)
             {
                 throw new ArgumentException("minimumDamage must be 0 or larger");
             }
 
-            if(_maximumDamage < _minimumDamage)
+            if(maximumDamage < minimumDamage)
             {
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }
