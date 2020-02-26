@@ -54,6 +54,7 @@
     <Compile Include="Factories\WorldFactory.cs" />
     <Compile Include="Models\GameItem.cs" />
     <Compile Include="Models\GroupedInventoryItem.cs" />
+    <Compile Include="Models\Inventory.cs" />
     <Compile Include="Models\ItemPercentage.cs" />
     <Compile Include="Models\ItemQuantity.cs" />
     <Compile Include="Models\LivingEntity.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Models\World.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomNumberGenerator.cs" />
+    <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\LoggingService.cs" />
     <Compile Include="Shared\ExtensionMethods.cs" />
     <Compile Include="ViewModels\GameSession.cs" />

@@ -37,7 +37,7 @@
         
         <DataGrid Grid.Row="2" Grid.Column="0"
                   Margin="10"
-                  ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
+                  ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
@@ -72,7 +72,7 @@
 
         <DataGrid Grid.Row="2" Grid.Column="1"
                   Margin="10"
-                  ItemsSource="{Binding CurrentTrader.GroupedInventory}"
+                  ItemsSource="{Binding CurrentTrader.Inventory.GroupedInventory}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
