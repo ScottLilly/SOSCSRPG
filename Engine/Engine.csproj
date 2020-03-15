@@ -71,6 +71,7 @@
     <Compile Include="RandomNumberGenerator.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\LoggingService.cs" />
+    <Compile Include="Services\MessageBroker.cs" />
     <Compile Include="Shared\ExtensionMethods.cs" />
     <Compile Include="ViewModels\GameSession.cs" />
   </ItemGroup>
