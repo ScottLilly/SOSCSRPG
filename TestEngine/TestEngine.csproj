@@ -51,6 +51,7 @@
     <Compile Include="Actions\TestAttackWithWeapon.cs" />
     <Compile Include="Models\TestInventory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TestCombatService.cs" />
     <Compile Include="ViewModels\TestGameSession.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -46,6 +47,7 @@ namespace Engine.Factories
                                 node.AttributeAsString("Name"),
                                 $".{rootImagePath}{node.AttributeAsString("ImageName")}",
                                 node.AttributeAsInt("MaximumHitPoints"),
+                                Convert.ToInt32(node.SelectSingleNode("./Dexterity").InnerText),
                                 ItemFactory.CreateGameItem(node.AttributeAsInt("WeaponID")),
                                 node.AttributeAsInt("RewardXP"),
                                 node.AttributeAsInt("Gold"));
