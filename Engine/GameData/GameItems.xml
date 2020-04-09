@@ -3,9 +3,9 @@
   <Weapons>
     <Weapon ID="1001" Name="Pointy stick" Price="1" MinimumDamage="1" MaximumDamage="2"/>
     <Weapon ID="1002" Name="Rusty sword" Price="5" MinimumDamage="1" MaximumDamage="3"/>
-    <Weapon ID="1501" Name="Snake fang" Price="0" MinimumDamage="0" MaximumDamage="2"/>
-    <Weapon ID="1502" Name="Rat claw" Price="0" MinimumDamage="0" MaximumDamage="2"/>
-    <Weapon ID="1503" Name="Spider fang" Price="0" MinimumDamage="0" MaximumDamage="4"/>
+    <Weapon ID="1501" Name="Snake fang" Price="0" MinimumDamage="1" MaximumDamage="2"/>
+    <Weapon ID="1502" Name="Rat claw" Price="0" MinimumDamage="1" MaximumDamage="2"/>
+    <Weapon ID="1503" Name="Spider fang" Price="0" MinimumDamage="1" MaximumDamage="4"/>
   </Weapons>
   <HealingItems>
     <HealingItem ID="2001" Name="Granola bar" Price="5" HitPointsToHeal="2"/>
