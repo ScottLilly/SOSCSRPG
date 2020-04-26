@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         FontSize="11pt"
         Title="Scott's Awesome Game" Height="768" Width="1024"
-        KeyDown="MainWindow_OnKeyDown">
+        KeyDown="MainWindow_OnKeyDown"
+        Closing="MainWindow_OnClosing">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
