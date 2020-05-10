@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Engine.Services;
+using Newtonsoft.Json;
 
 namespace Engine.Models
 {
@@ -20,15 +21,19 @@ namespace Engine.Models
 
         public IReadOnlyList<GameItem> Items => _backingInventory.AsReadOnly();
 
+        [JsonIgnore]
         public IReadOnlyList<GroupedInventoryItem> GroupedInventory =>
             _backingGroupedInventoryItems.AsReadOnly();
 
+        [JsonIgnore]
         public IReadOnlyList<GameItem> Weapons =>
             _backingInventory.ItemsThatAre(GameItem.ItemCategory.Weapon).AsReadOnly();
 
+        [JsonIgnore]
         public IReadOnlyList<GameItem> Consumables =>
             _backingInventory.ItemsThatAre(GameItem.ItemCategory.Consumable).AsReadOnly();
 
+        [JsonIgnore]
         public bool HasConsumable => Consumables.Any();
 
         #endregion
