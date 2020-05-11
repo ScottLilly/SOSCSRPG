@@ -14,10 +14,13 @@ namespace WPFUI
 {
     public partial class MainWindow : Window
     {
+        private const string SAVE_GAME_FILE_NAME = "SOSCRPG.json";
+
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
-        private readonly GameSession _gameSession;
         private readonly Dictionary<Key, Action> _userInputActions = 
             new Dictionary<Key, Action>();
+
+        private GameSession _gameSession;
 
         public MainWindow()
         {
@@ -27,9 +30,7 @@ namespace WPFUI
 
             _messageBroker.OnMessageRaised += OnGameMessageRaised;
 
-            _gameSession = SaveGameService.LoadLastSaveOrCreateNew();
-
-            DataContext = _gameSession;
+            SetActiveGameSessionTo(SaveGameService.LoadLastSaveOrCreateNew(SAVE_GAME_FILE_NAME));
         }
 
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
@@ -122,9 +123,41 @@ namespace WPFUI
             }
         }
 
+        private void SetActiveGameSessionTo(GameSession gameSession)
+        {
+            _gameSession = gameSession;
+
+            DataContext = _gameSession;
+        }
+
+        private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LoadGame_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveGame_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void MainWindow_OnClosing(object sender, CancelEventArgs e)
         {
-            SaveGameService.Save(_gameSession);
+            SaveGame();
+        }
+
+        private void SaveGame()
+        {
+            SaveGameService.Save(_gameSession, SAVE_GAME_FILE_NAME);
         }
     }
 }
