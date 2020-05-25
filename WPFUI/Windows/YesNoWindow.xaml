@@ -1,0 +1,43 @@
+﻿<Window x:Class="WPFUI.Windows.YesNoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        FontSize="11pt"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Title="YesNoWindow" 
+        MinHeight="125"
+        MinWidth="250"
+        SizeToContent="WidthAndHeight">
+
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               Grid.ColumnSpan="2"
+               x:Name="Message"/>
+
+        <Button Grid.Row="2" Grid.Column="0"
+                Content="No"
+                Width="75"
+                HorizontalAlignment="Left"
+                Click="No_OnClick"/>
+
+        <Button Grid.Row="2" Grid.Column="1"
+                Content="Yes"
+                Width="75"
+                HorizontalAlignment="Right"
+                Click="Yes_OnClick"/>
+    </Grid>
+
+</Window>
