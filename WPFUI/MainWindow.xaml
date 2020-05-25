@@ -28,7 +28,30 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menu -->
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
+        <Menu Grid.Row="0" Grid.Column="0"
+              Grid.ColumnSpan="2"
+              FontSize="11pt"
+              Background="AliceBlue">
+            <MenuItem Header="File">
+                <MenuItem Header="Start New Game"
+                          Click="StartNewGame_OnClick"/>
+                <Separator/>
+                <MenuItem Header="Load Game"
+                          Click="LoadGame_OnClick"/>
+                <MenuItem Header="Save Game"
+                          Click="SaveGame_OnClick"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          Click="Exit_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Help"
+                          IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="About"
+                          IsEnabled="False"/>
+            </MenuItem>
+        </Menu>
 
         <!-- Player stats -->
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
