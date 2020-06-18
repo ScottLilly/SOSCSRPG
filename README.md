@@ -6,3 +6,5 @@ This is a simple role-playing game, written in C#, using WPF.
 More details available at: https://scottlilly.com/build-a-cwpf-rpg/
 
 Please submit bugs to: https://github.com/ScottLilly/SOSCSRPG/issues
+
+Discord channel is at: https://discord.gg/AUYXYtH
