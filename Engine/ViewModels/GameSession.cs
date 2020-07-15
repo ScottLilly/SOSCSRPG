@@ -261,7 +261,7 @@ namespace Engine.ViewModels
 
         public void AttackCurrentMonster()
         {
-            _currentBattle.AttackOpponent();
+            _currentBattle?.AttackOpponent();
         }
 
         public void UseCurrentConsumable()
