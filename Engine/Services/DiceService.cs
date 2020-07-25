@@ -57,7 +57,7 @@ namespace Engine.Services
 
         public DiceResult Roll(int sides, int numDice = 1, int modifier = 0)
         {
-            var result = Dice.Dice(sides, numDice).Constant(modifier).Roll(DieRoller);
+            DiceResult result = Dice.Dice(sides, numDice).Constant(modifier).Roll(DieRoller);
             Dice.Clear();
 
             return result;
