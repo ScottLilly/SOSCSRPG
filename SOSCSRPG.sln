@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUI", "WPFUI\WPFUI.csproj", "{EBD9099E-9C53-4750-A01F-3442309B2FE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{D6199432-81AE-49A5-9AB3-2784D8600450}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEngine", "TestEngine\TestEngine.csproj", "{E4073809-B6F2-4230-84D4-3DFEABE7E41F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{1D6B8C26-64BD-43DB-9587-EF0E6C42D4FD}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\LicensesConsumed.md = Docs\LicensesConsumed.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,7 +37,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1C014A0D-A629-47AC-9E44-69F5DCC74182}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {1C014A0D-A629-47AC-9E44-69F5DCC74182}
 	EndGlobalSection
 EndGlobal
