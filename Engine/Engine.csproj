@@ -35,7 +35,7 @@
       <HintPath>..\packages\D20Tek.Common.Net47.3.1.55\lib\netstandard2.0\D20Tek.Common.Net47.dll</HintPath>
     </Reference>
     <Reference Include="D20Tek.DiceNotation.Net47, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\D20Tek.DiceNotation.Net47.3.1.27\lib\netstandard2.0\D20Tek.DiceNotation.Net47.dll</HintPath>
+      <HintPath>..\packages\D20Tek.DiceNotation.Net47.3.1.29\lib\netstandard2.0\D20Tek.DiceNotation.Net47.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=4.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.11.0\lib\net461\MathNet.Numerics.dll</HintPath>
@@ -118,6 +118,8 @@
     <Compile Include="RandomNumberGenerator.cs" />
     <Compile Include="Models\Battle.cs" />
     <Compile Include="Services\CombatService.cs" />
+    <Compile Include="Services\DiceService.cs" />
+    <Compile Include="Services\IDiceService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\LoggingService.cs" />
     <Compile Include="Services\MessageBroker.cs" />
