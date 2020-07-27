@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Engine.Factories;
+using Engine.Services;
 using Newtonsoft.Json;
 
 namespace Engine.Models
@@ -62,7 +63,7 @@ namespace Engine.Models
             int totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
 
             // Select a random number between 1 and the total (in case the total chances is not 100).
-            int randomNumber = RandomNumberGenerator.NumberBetween(1, totalChances);
+            int randomNumber = DiceService.Instance.Roll(totalChances, 1).Value;
 
             // Loop through the monster list, 
             // adding the monster's percentage chance of appearing to the runningTotal variable.
