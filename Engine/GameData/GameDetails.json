@@ -1,0 +1,36 @@
+{
+  "Name": "SOSCSRPG",
+  "Version": "0.1.000",
+  "PlayerAttributes": [
+    {
+      "Key": "STR",
+      "DisplayName": "Strength",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "INT",
+      "DisplayName": "Intelligence",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "WIS",
+      "DisplayName": "Wisdom",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "CON",
+      "DisplayName": "Constitution",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "DEX",
+      "DisplayName": "Dexterity",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "CHA",
+      "DisplayName": "Charisma",
+      "DiceNotation": "3d6"
+    }
+  ]
+}

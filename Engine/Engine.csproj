@@ -99,6 +99,7 @@
     <Compile Include="Factories\RecipeFactory.cs" />
     <Compile Include="Factories\TraderFactory.cs" />
     <Compile Include="Factories\WorldFactory.cs" />
+    <Compile Include="Models\GameDetails.cs" />
     <Compile Include="Models\GameItem.cs" />
     <Compile Include="Models\GroupedInventoryItem.cs" />
     <Compile Include="Models\Inventory.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Models\MonsterEncounter.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerAttribute.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\QuestStatus.cs" />
     <Compile Include="Models\Recipe.cs" />
@@ -128,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="GameData\GameDetails.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Images\Locations\FarmFields.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

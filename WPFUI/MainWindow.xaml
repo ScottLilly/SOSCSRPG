@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance viewModels:GameSession}"
         mc:Ignorable="d"
         FontSize="11pt"
-        Title="Scott's Awesome Game" Height="768" Width="1024"
+        Title="{Binding GameDetails.Name}" Height="768" Width="1024"
         KeyDown="MainWindow_OnKeyDown"
         Closing="MainWindow_OnClosing">
 

@@ -8,6 +8,9 @@ namespace Engine.Models
     {
         #region Properties
 
+        public ObservableCollection<PlayerAttribute> PlayerAttributes { get; } =
+            new ObservableCollection<PlayerAttribute>();
+
         private string _characterClass;
         private int _experiencePoints;
 
@@ -34,9 +37,11 @@ namespace Engine.Models
             }
         }
 
-        public ObservableCollection<QuestStatus> Quests { get; }
+        public ObservableCollection<QuestStatus> Quests { get; } =
+            new ObservableCollection<QuestStatus>();
 
-        public ObservableCollection<Recipe> Recipes { get; }
+        public ObservableCollection<Recipe> Recipes { get; } = 
+            new ObservableCollection<Recipe>();
 
         #endregion
 
@@ -48,9 +53,6 @@ namespace Engine.Models
         {
             CharacterClass = characterClass;
             ExperiencePoints = experiencePoints;
-
-            Quests = new ObservableCollection<QuestStatus>();
-            Recipes = new ObservableCollection<Recipe>();
         }
 
         public void AddExperience(int experiencePoints)
