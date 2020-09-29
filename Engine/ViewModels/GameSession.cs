@@ -22,8 +22,6 @@ namespace Engine.ViewModels
         private Monster _currentMonster;
         private Trader _currentTrader;
 
-        public string Version { get; } = "0.1.000";
-
         [JsonIgnore]
         public GameDetails GameDetails
         {

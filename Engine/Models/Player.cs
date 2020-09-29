@@ -8,9 +8,6 @@ namespace Engine.Models
     {
         #region Properties
 
-        public ObservableCollection<PlayerAttribute> PlayerAttributes { get; } =
-            new ObservableCollection<PlayerAttribute>();
-
         private string _characterClass;
         private int _experiencePoints;
 
