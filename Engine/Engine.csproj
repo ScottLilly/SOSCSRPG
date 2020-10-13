@@ -120,6 +120,7 @@
     <Compile Include="Models\Battle.cs" />
     <Compile Include="Services\CombatService.cs" />
     <Compile Include="Services\DiceService.cs" />
+    <Compile Include="Services\GameDetailsService.cs" />
     <Compile Include="Services\IDiceService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\LoggingService.cs" />
