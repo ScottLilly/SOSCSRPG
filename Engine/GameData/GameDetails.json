@@ -33,5 +33,45 @@
       "DisplayName": "Charisma",
       "DiceNotation": "3d6"
     }
-  ]
+  ],
+  "Races": [
+    {
+      "Key": "HUMAN",
+      "DisplayName": "Human",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CON",
+          "Modifier": "1"
+        }
+      ]
+    },
+    {
+      "Key": "ELF",
+      "DisplayName": "Elf",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CHA",
+          "Modifier": "1"
+        },
+        {
+          "Key": "STR",
+          "Modifier": "-1"
+        }
+      ]
+    },
+    {
+      "Key": "ORC",
+      "DisplayName": "Orc",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CHA",
+          "Modifier": "-1"
+        },
+        {
+          "Key": "STR",
+          "Modifier": "1"
+        }
+      ]
+    }
+  ] 
 }

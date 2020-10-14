@@ -111,8 +111,10 @@
     <Compile Include="Models\MonsterEncounter.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayerAttribute.cs" />
+    <Compile Include="Models\PlayerAttributeModifier.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\QuestStatus.cs" />
+    <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\World.cs" />

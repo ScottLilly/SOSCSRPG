@@ -32,5 +32,10 @@ namespace Engine.Shared
         {
             return jsonToken[key].ToString();
         }
+
+        public static int IntValueOf(this JToken jsonToken, string key)
+        {
+            return Convert.ToInt32(jsonToken[key]);
+        }
     }
 }

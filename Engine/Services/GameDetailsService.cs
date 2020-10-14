@@ -24,6 +24,24 @@ namespace Engine.Services
                                                                      token.StringValueOf("DiceNotation")));
             }
 
+            foreach(JToken token in gameDetailsJson["Races"])
+            {
+                Race race = new Race
+                            {
+                                Key = token.StringValueOf("Key"),
+                                DisplayName = token.StringValueOf("DisplayName")
+                            };
+
+                foreach(JToken childToken in token["PlayerAttributeModifiers"])
+                {
+                    race.PlayerAttributeModifiers.Add(new PlayerAttributeModifier
+                                                      {
+                                                          AttributeKey = childToken.StringValueOf("Key"),
+                                                          Modifier = childToken.IntValueOf("Modifier")
+                                                      });
+                }
+            }
+
             return gameDetails;
         }
     }
