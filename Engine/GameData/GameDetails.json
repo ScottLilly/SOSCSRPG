@@ -1,5 +1,6 @@
 {
-  "Name": "Scott's Open Source C# RPG",
+  "Title": "Scott's Open Source C# RPG",
+  "SubTitle" : "The Adventure Continues",
   "Version": "0.1.000",
   "PlayerAttributes": [
     {

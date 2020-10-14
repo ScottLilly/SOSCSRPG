@@ -11,8 +11,10 @@ namespace Engine.Services
             JObject gameDetailsJson = 
                 JObject.Parse(File.ReadAllText(".\\GameData\\GameDetails.json"));
 
-            GameDetails gameDetails = new GameDetails(gameDetailsJson["Name"].ToString(), 
-                                          gameDetailsJson["Version"].ToString());
+            GameDetails gameDetails = 
+                new GameDetails(gameDetailsJson["Title"].ToString(), 
+                                gameDetailsJson["SubTitle"].ToString(),
+                                gameDetailsJson["Version"].ToString());
 
             foreach(JToken token in gameDetailsJson["PlayerAttributes"])
             {
