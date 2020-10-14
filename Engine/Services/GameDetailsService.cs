@@ -40,6 +40,8 @@ namespace Engine.Services
                                                           Modifier = childToken.IntValueOf("Modifier")
                                                       });
                 }
+
+                gameDetails.Races.Add(race);
             }
 
             return gameDetails;
