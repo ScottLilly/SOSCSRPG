@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Engine.Models;
+using Engine.Shared;
 using Newtonsoft.Json.Linq;
 
 namespace Engine.Services
@@ -12,15 +13,15 @@ namespace Engine.Services
                 JObject.Parse(File.ReadAllText(".\\GameData\\GameDetails.json"));
 
             GameDetails gameDetails = 
-                new GameDetails(gameDetailsJson["Title"].ToString(), 
-                                gameDetailsJson["SubTitle"].ToString(),
-                                gameDetailsJson["Version"].ToString());
+                new GameDetails(gameDetailsJson.StringValueOf("Title"), 
+                                gameDetailsJson.StringValueOf("SubTitle"),
+                                gameDetailsJson.StringValueOf("Version"));
 
             foreach(JToken token in gameDetailsJson["PlayerAttributes"])
             {
-                gameDetails.PlayerAttributes.Add(new PlayerAttribute(token["Key"].ToString(),
-                                                                           token["DisplayName"].ToString(),
-                                                                           token["DiceNotation"].ToString()));
+                gameDetails.PlayerAttributes.Add(new PlayerAttribute(token.StringValueOf("Key"),
+                                                                     token.StringValueOf("DisplayName"),
+                                                                     token.StringValueOf("DiceNotation")));
             }
 
             return gameDetails;

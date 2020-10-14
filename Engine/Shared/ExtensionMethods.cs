@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml;
+using Newtonsoft.Json.Linq;
 
 namespace Engine.Shared
 {
@@ -20,6 +21,16 @@ namespace Engine.Shared
             }
 
             return attribute.Value;
+        }
+
+        public static string StringValueOf(this JObject jsonObject, string key)
+        {
+            return jsonObject[key].ToString();
+        }
+
+        public static string StringValueOf(this JToken jsonToken, string key)
+        {
+            return jsonToken[key].ToString();
         }
     }
 }
