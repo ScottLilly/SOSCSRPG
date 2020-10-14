@@ -19,8 +19,8 @@ namespace WPFUI
 
         private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            CharacterCreation characterCreationWindow = new CharacterCreation();
+            characterCreationWindow.Show();
             Close();
         }
 
