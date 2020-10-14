@@ -8,7 +8,6 @@ namespace WPFUI
     {
         private GameDetails _gameDetails;
 
-
         public Startup()
         {
             InitializeComponent();
@@ -16,6 +15,18 @@ namespace WPFUI
             _gameDetails = GameDetailsService.ReadGameDetails();
 
             DataContext = _gameDetails;
+        }
+
+        private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
