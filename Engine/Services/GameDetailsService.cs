@@ -24,24 +24,30 @@ namespace Engine.Services
                                                                      token.StringValueOf("DiceNotation")));
             }
 
-            foreach(JToken token in gameDetailsJson["Races"])
+            if(gameDetailsJson["Races"] != null)
             {
-                Race race = new Race
-                            {
-                                Key = token.StringValueOf("Key"),
-                                DisplayName = token.StringValueOf("DisplayName")
-                            };
-
-                foreach(JToken childToken in token["PlayerAttributeModifiers"])
+                foreach(JToken token in gameDetailsJson["Races"])
                 {
-                    race.PlayerAttributeModifiers.Add(new PlayerAttributeModifier
-                                                      {
-                                                          AttributeKey = childToken.StringValueOf("Key"),
-                                                          Modifier = childToken.IntValueOf("Modifier")
-                                                      });
-                }
+                    Race race = new Race
+                                {
+                                    Key = token.StringValueOf("Key"),
+                                    DisplayName = token.StringValueOf("DisplayName")
+                                };
 
-                gameDetails.Races.Add(race);
+                    if(token["PlayerAttributeModifiers"] != null)
+                    {
+                        foreach(JToken childToken in token["PlayerAttributeModifiers"])
+                        {
+                            race.PlayerAttributeModifiers.Add(new PlayerAttributeModifier
+                                                              {
+                                                                  AttributeKey = childToken.StringValueOf("Key"),
+                                                                  Modifier = childToken.IntValueOf("Modifier")
+                                                              });
+                        }
+                    }
+
+                    gameDetails.Races.Add(race);
+                }
             }
 
             return gameDetails;
