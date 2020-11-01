@@ -149,7 +149,7 @@ namespace Engine.Services
 
         private static string FileVersion(JObject data)
         {
-            return (string)data[nameof(GameSession.Version)];
+            return (string)data[nameof(GameSession.GameDetails.Version)];
         }
     }
 }
