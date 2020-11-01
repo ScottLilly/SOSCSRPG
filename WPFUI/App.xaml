@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converters="clr-namespace:WPFUI.CustomConverters"
              DispatcherUnhandledException="App_OnDispatcherUnhandledException"
-             StartupUri="MainWindow.xaml">
-
+             StartupUri="Startup.xaml">
+ 
     <Application.Resources>
-         <converters:FileToBitmapConverter x:Key="FileToBitmapConverter"/>
+        <converters:FileToBitmapConverter x:Key="FileToBitmapConverter"/>
     </Application.Resources>
-
+ 
 </Application>

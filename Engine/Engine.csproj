@@ -111,8 +111,10 @@
     <Compile Include="Models\MonsterEncounter.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayerAttribute.cs" />
+    <Compile Include="Models\PlayerAttributeModifier.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\QuestStatus.cs" />
+    <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\World.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Models\Battle.cs" />
     <Compile Include="Services\CombatService.cs" />
     <Compile Include="Services\DiceService.cs" />
+    <Compile Include="Services\GameDetailsService.cs" />
     <Compile Include="Services\IDiceService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\LoggingService.cs" />
