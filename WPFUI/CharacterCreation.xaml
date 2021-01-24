@@ -25,24 +25,53 @@
 
         <Label Grid.Row="0" Grid.Column="0"
                Grid.ColumnSpan="2"
-               Content="CHARACTER CREATION SCREEN"/>
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Content="Create a new character"/>
 
         <!-- Character creation controls -->
         <Label Grid.Row="1" Grid.Column="0"
                FontWeight="Bold"
                Content="Name:"/>
         <TextBox Grid.Row="1" Grid.Column="1"
-                 Width="150"
+                 Width="250"
+                 HorizontalAlignment="Left"
                  Text="{Binding Name}"/>
 
         <Label Grid.Row="2" Grid.Column="0"
                FontWeight="Bold"
-               Content="Race:"/>
+               Content="Race:"
+               Visibility="{Binding HasRaces, Converter={StaticResource BooleanToVisibilityConverter}}"/>
         <ComboBox Grid.Row="2" Grid.Column="1"
+                  Width="250"
+                  HorizontalAlignment="Left"
                   ItemsSource="{Binding GameDetails.Races}"
                   DisplayMemberPath="DisplayName"
-                  SelectedItem="{Binding SelectedRace}"/>
+                  SelectedItem="{Binding SelectedRace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectionChanged="Race_OnSelectionChanged"
+                  Visibility="{Binding HasRaces, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
+        <DataGrid Grid.Row="3" Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  ItemsSource="{Binding PlayerAttributes}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  HeadersVisibility="Column">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Attribute"
+                                    Binding="{Binding DisplayName}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Value"
+                                    Binding="{Binding BaseValue}"/>
+                <DataGridTextColumn Header="Modified"
+                                    Binding="{Binding ModifiedValue}"
+                                    Visibility="{Binding HasRaceAttributeModifiers, 
+                                                 Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
 
         <Grid Grid.Row="4" Grid.Column="0"
                   Grid.ColumnSpan="2">
@@ -59,14 +88,14 @@
                     Margin="0,5,0,5"
                     HorizontalAlignment="Center"
                     Width="125"
-                    Content="Random Player"
+                    Content="Roll new player"
                     Click="RandomPlayer_OnClick"/>
 
             <Button Grid.Row="0" Grid.Column="2"
                     Margin="0,5,0,5"
                     HorizontalAlignment="Center"
                     Width="125"
-                    Content="Use this Player"
+                    Content="Use this player"
                     Click="UseThisPlayer_OnClick"/>
 
         </Grid>

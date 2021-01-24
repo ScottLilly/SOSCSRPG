@@ -33,6 +33,12 @@ namespace WPFUI
             SetActiveGameSessionTo(new GameSession());
         }
 
+        public MainWindow(Player player) : 
+            this()
+        {
+            _gameSession.CurrentPlayer = player;
+        }
+
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
             _gameSession.MoveNorth();

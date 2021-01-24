@@ -2,13 +2,23 @@
 
 namespace Engine.Models
 {
-    public class PlayerAttribute
+    public class PlayerAttribute : BaseNotificationClass
     {
+        private int _modifiedValue;
         public string Key { get; }
         public string DisplayName { get; }
         public string DiceNotation { get; }
         public int BaseValue { get; set; }
-        public int ModifiedValue { get; set; }
+
+        public int ModifiedValue
+        {
+            get => _modifiedValue;
+            set
+            {
+                _modifiedValue = value;
+                OnPropertyChanged();
+            }
+        }
 
         // Constructor that will use DiceService to create a BaseValue.
         // The constructor this calls will put that same value into BaseValue and ModifiedValue
