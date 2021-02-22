@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -8,18 +9,7 @@ namespace Engine.Models
     {
         #region Properties
 
-        private string _characterClass;
         private int _experiencePoints;
-
-        public string CharacterClass
-        {
-            get => _characterClass;
-            set
-            {
-                _characterClass = value;
-                OnPropertyChanged();
-            }
-        }
 
         public int ExperiencePoints
         {
@@ -44,11 +34,11 @@ namespace Engine.Models
 
         public event EventHandler OnLeveledUp;
 
-        public Player(string name, string characterClass, int experiencePoints,
-                      int maximumHitPoints, int currentHitPoints, int dexterity, int gold) : 
-            base(name, maximumHitPoints, currentHitPoints, dexterity, gold)
+        public Player(string name, int experiencePoints, 
+                      int maximumHitPoints, int currentHitPoints, 
+                      IEnumerable<PlayerAttribute> attributes, int gold) : 
+            base(name, maximumHitPoints, currentHitPoints, attributes, gold)
         {
-            CharacterClass = characterClass;
             ExperiencePoints = experiencePoints;
         }
 
