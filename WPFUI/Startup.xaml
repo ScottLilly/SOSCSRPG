@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -23,10 +24,17 @@
                 Margin="0,5,0,5"
                 HorizontalAlignment="Center"
                 Width="125"
-                Content="Start New Game"
+                Content="Start new game"
                 Click="StartNewGame_OnClick"/>
  
         <Button Grid.Row="1" Grid.Column="0"
+                Margin="0,5,0,5"
+                HorizontalAlignment="Center"
+                Width="125"
+                Content="Load saved game"
+                Click="LoadSavedGame_OnClick"/>
+ 
+        <Button Grid.Row="2" Grid.Column="0"
                 Margin="0,5,0,5"
                 HorizontalAlignment="Center"
                 Width="125"
