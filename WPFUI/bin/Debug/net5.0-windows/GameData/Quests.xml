@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Quests>
+  <Quest ID="1" RewardExperiencePoints="25" RewardGold="10">
+    <Name><![CDATA[Clear the herb garden]]></Name>
+    <Description><![CDATA[Defeat the snakes in the Herbalist's garden.]]></Description>
+    <ItemsToComplete>
+      <Item ID="9001" Quantity="5"/>
+    </ItemsToComplete>
+    <RewardItems>
+      <Item ID="1002" Quantity="1"/>
+    </RewardItems>
+  </Quest>
+</Quests>

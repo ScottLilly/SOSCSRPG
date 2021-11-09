@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Recipes>
+  <Recipe ID="1">
+    <Name><![CDATA[Granola bar]]></Name>
+    <Ingredients>
+      <Item ID="3001" Quantity="1"/>
+      <Item ID="3002" Quantity="1"/>
+      <Item ID="3003" Quantity="1"/>
+    </Ingredients>
+    <OutputItems>
+      <Item ID="2001" Quantity="1"/>
+    </OutputItems>
+  </Recipe>
+</Recipes>

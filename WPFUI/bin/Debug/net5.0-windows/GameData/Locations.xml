@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Locations RootImagePath="/Images/Locations/">
+  <Location X="-2" Y="-1" Name="Farmer's Field" ImageName="FarmFields.png">
+    <Description><![CDATA[There are rows of corn here, with giant rats hiding between them.]]></Description>
+    <Monsters>
+      <Monster ID="2" Percent="100"/>
+    </Monsters>
+  </Location>
+  <Location X="-1" Y="-1" Name="Farmer's House" ImageName="Farmhouse.png">
+    <Description><![CDATA[This is the house of your neighbor, Farmer Ted.]]></Description>
+    <Trader ID="2"/>
+  </Location>
+  <Location X="0" Y="-1" Name="Home" ImageName="Home.png">
+    <Description><![CDATA[This is your home.]]></Description>
+  </Location>
+  <Location X="-1" Y="0" Name="Trading Shop" ImageName="Trader.png">
+    <Description><![CDATA[The shop of Susan, the trader.]]></Description>
+    <Trader ID="1"/>
+  </Location>
+  <Location X="0" Y="0" Name="Town Square" ImageName="TownSquare.png">
+    <Description><![CDATA[You see a fountain here.]]></Description>
+  </Location>
+  <Location X="1" Y="0" Name="Town Gate" ImageName="TownGate.png">
+    <Description><![CDATA[There is a gate here, protecting the town from giant spiders.]]></Description>
+  </Location>
+  <Location X="2" Y="0" Name="Spider Forest" ImageName="SpiderForest.png">
+    <Description><![CDATA[The trees in this forest are covered with spider webs.]]></Description>
+    <Monsters>
+      <Monster ID="3" Percent="100"/>
+    </Monsters>
+  </Location>
+  <Location X="0" Y="1" Name="Herbalist's Hut" ImageName="HerbalistsHut.png">
+    <Description><![CDATA[You see a small hut, with plants drying from the roof.]]></Description>
+    <Quests>
+      <Quest ID="1"/>
+    </Quests>
+    <Trader ID="3"/>
+  </Location>
+  <Location X="0" Y="2" Name="Herbalist's Garden" ImageName="HerbalistsGarden.png">
+    <Description><![CDATA[There are many plants here, with snakes hiding behind them.]]></Description>
+    <Monsters>
+      <Monster ID="1" Percent="100"/>
+    </Monsters>
+  </Location>
+</Locations>

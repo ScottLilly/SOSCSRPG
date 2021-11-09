@@ -1,0 +1,77 @@
+{
+  "Title": "Scott's Open Source C# RPG",
+  "SubTitle": "The Adventure Continues",
+  "Version": "0.1.000",
+  "PlayerAttributes": [
+    {
+      "Key": "STR",
+      "DisplayName": "Strength",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "INT",
+      "DisplayName": "Intelligence",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "WIS",
+      "DisplayName": "Wisdom",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "CON",
+      "DisplayName": "Constitution",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "DEX",
+      "DisplayName": "Dexterity",
+      "DiceNotation": "3d6"
+    },
+    {
+      "Key": "CHA",
+      "DisplayName": "Charisma",
+      "DiceNotation": "3d6"
+    }
+  ],
+  "Races": [
+    {
+      "Key": "HUMAN",
+      "DisplayName": "Human",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CON",
+          "Modifier": "1"
+        }
+      ]
+    },
+    {
+      "Key": "ELF",
+      "DisplayName": "Elf",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CHA",
+          "Modifier": "1"
+        },
+        {
+          "Key": "STR",
+          "Modifier": "-1"
+        }
+      ]
+    },
+    {
+      "Key": "ORC",
+      "DisplayName": "Orc",
+      "PlayerAttributeModifiers": [
+        {
+          "Key": "CHA",
+          "Modifier": "-1"
+        },
+        {
+          "Key": "STR",
+          "Modifier": "1"
+        }
+      ]
+    }
+  ]
+}

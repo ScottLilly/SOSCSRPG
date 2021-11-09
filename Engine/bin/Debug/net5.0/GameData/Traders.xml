@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Traders>
+  <Trader ID="1">
+    <Name><![CDATA[Susan]]></Name>
+    <InventoryItems>
+      <Item ID="1001" Quantity="1"/>
+    </InventoryItems>
+  </Trader>
+  <Trader ID="2">
+    <Name><![CDATA[Farmer Ted]]></Name>
+    <InventoryItems>
+      <Item ID="1001" Quantity="1"/>
+    </InventoryItems>
+  </Trader>
+  <Trader ID="3">
+    <Name><![CDATA[Pete the Herbalist]]></Name>
+    <InventoryItems>
+      <Item ID="1001" Quantity="1"/>
+    </InventoryItems>
+  </Trader>
+</Traders>
