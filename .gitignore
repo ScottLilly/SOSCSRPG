@@ -293,3 +293,5 @@ __pycache__/
 #NDepend
 NDependOut*
 *.ndproj
+.vs/SOSCSRPG/v16/.suo
+*.cache
