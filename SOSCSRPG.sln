@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUI", "WPFUI\WPFUI.csproj", "{015F100F-E2E1-415C-B197-DAE9D08C873F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFUI", "WPFUI\WPFUI.csproj", "{015F100F-E2E1-415C-B197-DAE9D08C873F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.ViewModels", "SOSCSRPG.ViewModels\SOSCSRPG.ViewModels.csproj", "{A095D9B4-9168-4161-A61D-0A5AD5E45796}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Models", "SOSCSRPG.Models\SOSCSRPG.Models.csproj", "{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Services", "SOSCSRPG.Services\SOSCSRPG.Services.csproj", "{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
