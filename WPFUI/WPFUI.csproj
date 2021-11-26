@@ -12,4 +12,8 @@
     <ProjectReference Include="..\SOSCSRPG.ViewModels\SOSCSRPG.ViewModels.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy $(SolutionDir)GameFiles\*.* $(ProjectDir)$(OutDir) /s" />
+  </Target>
+
 </Project>
