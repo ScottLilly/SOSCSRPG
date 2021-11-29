@@ -1,8 +1,9 @@
-﻿using Engine.Services;
+﻿using System.ComponentModel;
+using Engine.Services;
 
 namespace Engine.Models
 {
-    public class PlayerAttribute : BaseNotificationClass
+    public class PlayerAttribute : INotifyPropertyChanged
     {
         private int _modifiedValue;
         public string Key { get; }
@@ -10,13 +11,14 @@ namespace Engine.Models
         public string DiceNotation { get; }
         public int BaseValue { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public int ModifiedValue
         {
             get => _modifiedValue;
             set
             {
                 _modifiedValue = value;
-                OnPropertyChanged();
             }
         }
 
