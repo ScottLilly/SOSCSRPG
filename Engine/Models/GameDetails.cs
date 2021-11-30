@@ -4,9 +4,9 @@ namespace Engine.Models
 {
     public class GameDetails
     {
-        public string Title { get; set; }
-        public string SubTitle { get; set; }
-        public string Version { get; set; }
+        public string Title { get; }
+        public string SubTitle { get; }
+        public string Version { get; }
  
         public List<PlayerAttribute> PlayerAttributes { get; } =
             new List<PlayerAttribute>();
