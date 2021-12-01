@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
-        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        xmlns:viewModels="clr-namespace:SOSCSRPG.ViewModels;assembly=SOSCSRPG.ViewModels"
         d:DataContext="{d:DesignInstance viewModels:CharacterCreationViewModel}"
         mc:Ignorable="d"
         FontSize="11pt"

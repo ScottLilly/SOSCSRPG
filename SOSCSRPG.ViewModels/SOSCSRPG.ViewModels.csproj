@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj" />
     <ProjectReference Include="..\SOSCSRPG.Models\SOSCSRPG.Models.csproj" />
     <ProjectReference Include="..\SOSCSRPG.Services\SOSCSRPG.Services.csproj" />
   </ItemGroup>

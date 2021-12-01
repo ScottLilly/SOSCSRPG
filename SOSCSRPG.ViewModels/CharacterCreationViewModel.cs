@@ -5,7 +5,7 @@ using Engine.Factories;
 using Engine.Models;
 using Engine.Services;
 
-namespace Engine.ViewModels
+namespace SOSCSRPG.ViewModels
 {
     public class CharacterCreationViewModel : INotifyPropertyChanged
     {
