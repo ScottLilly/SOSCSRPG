@@ -1,18 +1,18 @@
-﻿using Engine.Factories;
-
-namespace Engine.Models
+﻿namespace Engine.Models
 {
     public class ItemQuantity
     {
-        public int ItemID { get; }
+        private readonly GameItem _gameItem;
+
+        public int ItemID => _gameItem.ItemTypeID;
         public int Quantity { get; }
 
         public string QuantityItemDescription => 
-            $"{Quantity} {ItemFactory.ItemName(ItemID)}";
+            $"{Quantity} {_gameItem.Name}";
 
-        public ItemQuantity(int itemID, int quantity)
+        public ItemQuantity(GameItem item, int quantity)
         {
-            ItemID = itemID;
+            _gameItem = item;
             Quantity = quantity;
         }
     }

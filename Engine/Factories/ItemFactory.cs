@@ -36,11 +36,6 @@ namespace Engine.Factories
             return _standardGameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID)?.Clone();
         }
 
-        public static string ItemName(int itemTypeID)
-        {
-            return _standardGameItems.FirstOrDefault(i => i.ItemTypeID == itemTypeID)?.Name ?? "";
-        }
-
         private static void LoadItemsFromNodes(XmlNodeList nodes)
         {
             if(nodes == null)

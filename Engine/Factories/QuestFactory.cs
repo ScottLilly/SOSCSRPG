@@ -38,14 +38,16 @@ namespace Engine.Factories
 
                 foreach(XmlNode childNode in node.SelectNodes("./ItemsToComplete/Item"))
                 {
-                    itemsToComplete.Add(new ItemQuantity(childNode.AttributeAsInt("ID"),
-                                                         childNode.AttributeAsInt("Quantity")));
+                    GameItem item = ItemFactory.CreateGameItem(childNode.AttributeAsInt("ID"));
+
+                    itemsToComplete.Add(new ItemQuantity(item, childNode.AttributeAsInt("Quantity")));
                 }
 
                 foreach(XmlNode childNode in node.SelectNodes("./RewardItems/Item"))
                 {
-                    rewardItems.Add(new ItemQuantity(childNode.AttributeAsInt("ID"),
-                                                     childNode.AttributeAsInt("Quantity")));
+                    GameItem item = ItemFactory.CreateGameItem(childNode.AttributeAsInt("ID"));
+
+                    rewardItems.Add(new ItemQuantity(item, childNode.AttributeAsInt("Quantity")));
                 }
 
                 _quests.Add(new Quest(node.AttributeAsInt("ID"),
