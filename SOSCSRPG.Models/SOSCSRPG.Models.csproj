@@ -12,4 +12,8 @@
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SOSCSRPG.Core\SOSCSRPG.Core.csproj" />
+  </ItemGroup>
+
 </Project>

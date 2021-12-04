@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SOSCSRPG.Core\SOSCSRPG.Core.csproj" />
-    <ProjectReference Include="..\SOSCSRPG.Models\SOSCSRPG.Models.csproj" />
+    <PackageReference Include="D20Tek.Common.Standard" Version="3.2.3" />
+    <PackageReference Include="D20Tek.DiceNotation.Standard" Version="3.2.3" />
   </ItemGroup>
 
 </Project>

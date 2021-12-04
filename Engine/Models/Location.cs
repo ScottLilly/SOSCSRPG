@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Engine.Factories;
-using Engine.Services;
 using Newtonsoft.Json;
+using SOSCSRPG.Core;
 
 namespace Engine.Models
 {

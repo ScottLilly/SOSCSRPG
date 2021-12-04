@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using Engine.Services;
+using SOSCSRPG.Core;
 
 namespace Engine.Models
 {

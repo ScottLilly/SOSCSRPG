@@ -1,5 +1,6 @@
 ﻿using Engine.Models;
 using Engine.Shared;
+using SOSCSRPG.Core;
 
 namespace Engine.Services
 {

@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Models", "SOSCSRPG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Services", "SOSCSRPG.Services\SOSCSRPG.Services.csproj", "{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Core", "SOSCSRPG.Core\SOSCSRPG.Core.csproj", "{E6631117-A896-4D5B-971B-7310331C8664}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6631117-A896-4D5B-971B-7310331C8664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6631117-A896-4D5B-971B-7310331C8664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6631117-A896-4D5B-971B-7310331C8664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6631117-A896-4D5B-971B-7310331C8664}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
