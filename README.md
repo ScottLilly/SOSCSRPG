@@ -7,4 +7,4 @@ Details an lessons available at: https://soscsrpg.com/
 
 Please submit feature requests and bugs to: https://github.com/SOSCSRPG/SOSCSRPG/issues
 
-Discord channel is at: https://discord.gg/AUYXYtH
+Discord channel is at: https://discord.gg/qTma89NFFS
