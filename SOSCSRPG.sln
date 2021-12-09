@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Models", "SOSCSRPG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Services", "SOSCSRPG.Services\SOSCSRPG.Services.csproj", "{72CB32B1-FA40-4C99-8C84-86FAC9845AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCSRPG.Core", "SOSCSRPG.Core\SOSCSRPG.Core.csproj", "{E6631117-A896-4D5B-971B-7310331C8664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Core", "SOSCSRPG.Core\SOSCSRPG.Core.csproj", "{E6631117-A896-4D5B-971B-7310331C8664}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,5 +51,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C6B3C80-1906-4152-8958-492CF71424F0}
+	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\SOSCSRPG.ndproj"
 	EndGlobalSection
 EndGlobal
