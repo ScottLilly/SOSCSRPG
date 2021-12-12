@@ -9,7 +9,7 @@ using Engine.Models;
 using Engine.Services;
 using Engine.ViewModels;
 using Microsoft.Win32;
-using SOSCSRPG.Models.EventArgs;
+using SOSCSRPG.Core;
 using WPFUI.Windows;
 
 namespace WPFUI

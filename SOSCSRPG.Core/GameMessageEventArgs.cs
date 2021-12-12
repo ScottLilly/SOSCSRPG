@@ -1,4 +1,4 @@
-﻿namespace SOSCSRPG.Models.EventArgs
+﻿namespace SOSCSRPG.Core
 {
     public class GameMessageEventArgs : System.EventArgs
     {

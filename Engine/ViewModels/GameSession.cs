@@ -4,6 +4,7 @@ using Engine.Factories;
 using Engine.Models;
 using Engine.Services;
 using Newtonsoft.Json;
+using SOSCSRPG.Core;
 
 namespace Engine.ViewModels
 {

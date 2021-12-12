@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using SOSCSRPG.Services;
+using SOSCSRPG.Core;
 
 namespace WPFUI
 {

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Engine.Factories;
 using Engine.Models;
 
 namespace Engine.Services
@@ -16,30 +15,9 @@ namespace Engine.Services
             return inventory.AddItems(new List<GameItem> {item});
         }
 
-        public static Inventory AddItemFromFactory(this Inventory inventory, int itemTypeID)
-        {
-            return inventory.AddItems(new List<GameItem> {ItemFactory.CreateGameItem(itemTypeID)});
-        }
-
         public static Inventory AddItems(this Inventory inventory, IEnumerable<GameItem> items)
         {
             return new Inventory(inventory.Items.Concat(items));
-        }
-
-        public static Inventory AddItems(this Inventory inventory,
-                                         IEnumerable<ItemQuantity> itemQuantities)
-        {
-            List<GameItem> itemsToAdd = new List<GameItem>();
-
-            foreach(ItemQuantity itemQuantity in itemQuantities)
-            {
-                for(int i = 0; i < itemQuantity.Quantity; i++)
-                {
-                    itemsToAdd.Add(ItemFactory.CreateGameItem(itemQuantity.ItemID));
-                }
-            }
-
-            return inventory.AddItems(itemsToAdd);
         }
 
         public static Inventory RemoveItem(this Inventory inventory, GameItem item)
@@ -80,12 +58,6 @@ namespace Engine.Services
             }
 
             return workingInventory;
-        }
-
-        public static List<GameItem> ItemsThatAre(this IEnumerable<GameItem> inventory,
-                                                  GameItem.ItemCategory category)
-        {
-            return inventory.Where(i => i.Category == category).ToList();
         }
     }
 }
