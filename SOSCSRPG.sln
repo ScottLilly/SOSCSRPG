@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFUI", "WPFUI\WPFUI.csproj", "{015F100F-E2E1-415C-B197-DAE9D08C873F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.ViewModels", "SOSCSRPG.ViewModels\SOSCSRPG.ViewModels.csproj", "{A095D9B4-9168-4161-A61D-0A5AD5E45796}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOSCSRPG.Models", "SOSCSRPG.Models\SOSCSRPG.Models.csproj", "{B3D29F62-BB86-4712-AEDF-4C3EAEF01710}"
@@ -25,10 +23,6 @@ Global
 		{015F100F-E2E1-415C-B197-DAE9D08C873F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{015F100F-E2E1-415C-B197-DAE9D08C873F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{015F100F-E2E1-415C-B197-DAE9D08C873F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B8471B6-9248-4E0A-85A0-CFD73DBFCA17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A095D9B4-9168-4161-A61D-0A5AD5E45796}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,8 +45,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C6B3C80-1906-4152-8958-492CF71424F0}
-	EndGlobalSection
-	GlobalSection(NDepend) = preSolution
-		Project = ".\SOSCSRPG.ndproj"
 	EndGlobalSection
 EndGlobal

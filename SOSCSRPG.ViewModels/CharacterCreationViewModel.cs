@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using Engine.Factories;
-using Engine.Models;
-using Engine.Services;
+using SOSCSRPG.Services.Factories;
+using SOSCSRPG.Models;
+using SOSCSRPG.Services;
 
 namespace SOSCSRPG.ViewModels
 {

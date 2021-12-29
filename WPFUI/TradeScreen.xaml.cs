@@ -1,6 +1,6 @@
 ﻿using System.Windows;
-using Engine.Models;
-using Engine.ViewModels;
+using SOSCSRPG.Models;
+using SOSCSRPG.ViewModels;
 
 namespace WPFUI
 {

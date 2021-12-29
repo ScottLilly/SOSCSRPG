@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
-        xmlns:viewModels="clr-namespace:Engine.Models;assembly=Engine"
-        d:DataContext="{d:DesignInstance viewModels:GameDetails}"
+        xmlns:models="clr-namespace:SOSCSRPG.Models;assembly=SOSCSRPG.Models"
+        d:DataContext="{d:DesignInstance models:GameDetails}"
         mc:Ignorable="d"
         FontSize="11pt"
         Title="{Binding Title}" Height="400" Width="400">
