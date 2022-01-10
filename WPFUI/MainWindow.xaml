@@ -50,8 +50,89 @@
             </MenuItem>
         </Menu>
 
+        <!-- Main game canvas (full window) -->
+        <Canvas Grid.Row="1" Grid.Column="0"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                x:Name="GameCanvas"
+                ZIndex="99">
+
+            <!-- Player Inventory Details -->
+            <Canvas Top="{Binding InventoryDetails.Top}" Left="{Binding InventoryDetails.Left}"
+                    Width="Auto" Height="Auto"
+                    x:Name="PlayerInventoryDetailsPopup"
+                    MinHeight="{Binding InventoryDetails.MinHeight}"
+                    MaxHeight="{Binding InventoryDetails.MaxHeight}"
+                    MinWidth="{Binding InventoryDetails.MinWidth}"
+                    MaxWidth="{Binding InventoryDetails.MaxWidth}"
+                    Visibility="{Binding InventoryDetails.IsVisible, Converter={StaticResource BooleanToVisibility}}">
+
+                <Border BorderBrush="Navy" BorderThickness="3"
+                        Background="LightSteelBlue">
+
+                    <Grid Margin="2,2,2,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="4"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               FontWeight="Bold"
+                               Content="Inventory"/>
+
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Width="25"
+                                FontWeight="Bold"
+                                Content="X"
+                                Click="CloseInventoryWindow_OnClick">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <DataGrid Grid.Row="2" Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}"
+                                  AutoGenerateColumns="False"
+                                  HeadersVisibility="Column"
+                                  VerticalScrollBarVisibility="Auto"
+                                  MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=MaxHeight}"
+                                  Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=ActualWidth}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Description"
+                                                    Binding="{Binding Item.Name, Mode=OneWay}"
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Qty"
+                                                    IsReadOnly="True"
+                                                    Width="Auto"
+                                                    Binding="{Binding Quantity, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Price"
+                                                    Binding="{Binding Item.Price, Mode=OneWay}"
+                                                    Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+
+                </Border>
+
+            </Canvas>
+
+        </Canvas>
+
         <!-- Player stats -->
-        <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
+        <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine"
+              ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -111,7 +192,8 @@
 
         <!-- Gameplay -->
         <Grid Grid.Row="1" Grid.Column="1"
-              Background="Beige">
+              Background="Beige"
+              ZIndex="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -213,29 +295,10 @@
 
         <!-- Inventory, Quests, and Recipes -->
         <Grid Grid.Row="2" Grid.Column="0"
-              Background="BurlyWood">
+              Background="BurlyWood"
+              ZIndex="1">
 
             <TabControl x:Name="PlayerDataTabControl">
-                <TabItem Header="Inventory"
-                         x:Name="InventoryTabItem">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory.GroupedInventory}"
-                              AutoGenerateColumns="False"
-                              HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Description"
-                                                Binding="{Binding Item.Name, Mode=OneWay}"
-                                                Width="*"/>
-                            <DataGridTextColumn Header="Qty"
-                                                IsReadOnly="True"
-                                                Width="Auto"
-                                                Binding="{Binding Quantity, Mode=OneWay}"/>
-                            <DataGridTextColumn Header="Price"
-                                                Binding="{Binding Item.Price, Mode=OneWay}"
-                                                Width="Auto"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-
                 <TabItem Header="Quests"
                          x:Name="QuestsTabItem">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}"
@@ -292,7 +355,8 @@
 
         <!-- Action controls -->
         <Grid Grid.Row="2" Grid.Column="1"
-              Background="Lavender">
+              Background="Lavender"
+              ZIndex="1">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
