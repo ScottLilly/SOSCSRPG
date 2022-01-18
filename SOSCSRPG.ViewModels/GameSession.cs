@@ -91,6 +91,8 @@ namespace SOSCSRPG.ViewModels
         public Trader CurrentTrader { get; private set; }
 
         public PopupDetails InventoryDetails { get; set; }
+        public PopupDetails QuestDetails { get; set; }
+        public PopupDetails RecipesDetails { get; set; }
 
         [JsonIgnore]
         public bool HasLocationToNorth =>
@@ -128,8 +130,30 @@ namespace SOSCSRPG.ViewModels
             InventoryDetails = new PopupDetails
             {
                 IsVisible = false,
-                Top = 225,
+                Top = 500,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
+
+            QuestDetails = new PopupDetails
+            {
+                IsVisible = false,
+                Top = 500,
                 Left = 275,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
+
+            RecipesDetails = new PopupDetails
+            {
+                IsVisible = false,
+                Top = 500,
+                Left = 575,
                 MinHeight = 75,
                 MaxHeight = 175,
                 MinWidth = 250,

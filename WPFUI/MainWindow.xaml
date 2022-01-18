@@ -60,7 +60,6 @@
             <!-- Player Inventory Details -->
             <Canvas Top="{Binding InventoryDetails.Top}" Left="{Binding InventoryDetails.Left}"
                     Width="Auto" Height="Auto"
-                    x:Name="PlayerInventoryDetailsPopup"
                     MinHeight="{Binding InventoryDetails.MinHeight}"
                     MaxHeight="{Binding InventoryDetails.MaxHeight}"
                     MinWidth="{Binding InventoryDetails.MinWidth}"
@@ -119,6 +118,158 @@
                                 <DataGridTextColumn Header="Price"
                                                     Binding="{Binding Item.Price, Mode=OneWay}"
                                                     Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+
+                </Border>
+
+            </Canvas>
+
+            <!-- Player Quests Details -->
+            <Canvas Top="{Binding QuestDetails.Top}" Left="{Binding QuestDetails.Left}"
+                    Width="Auto" Height="Auto"
+                    MinHeight="{Binding QuestDetails.MinHeight}"
+                    MaxHeight="{Binding QuestDetails.MaxHeight}"
+                    MinWidth="{Binding QuestDetails.MinWidth}"
+                    MaxWidth="{Binding QuestDetails.MaxWidth}"
+                    Visibility="{Binding QuestDetails.IsVisible, Converter={StaticResource BooleanToVisibility}}">
+
+                <Border BorderBrush="Navy" BorderThickness="3"
+                        Background="LightSteelBlue">
+
+                    <Grid Margin="2,2,2,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="4"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               FontWeight="Bold"
+                               Content="Quests"/>
+
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Width="25"
+                                FontWeight="Bold"
+                                Content="X"
+                                Click="CloseQuestsWindow_OnClick">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <DataGrid Grid.Row="2" Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  ItemsSource="{Binding CurrentPlayer.Quests}"
+                                  AutoGenerateColumns="False"
+                                  HeadersVisibility="Column"
+                                  VerticalScrollBarVisibility="Auto"
+                                  MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=MaxHeight}"
+                                  Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=ActualWidth}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name"
+                                                    Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
+                                                    Width="*">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="ToolTip" 
+                                                    Value="{Binding PlayerQuest.ToolTipContents}"/>
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Header="Done?"
+                                                    Binding="{Binding IsCompleted, Mode=OneWay}"
+                                                    Width="Auto"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+
+                </Border>
+
+            </Canvas>
+
+            <!-- Player Recipes Details -->
+            <Canvas Top="{Binding RecipesDetails.Top}" Left="{Binding RecipesDetails.Left}"
+                    Width="Auto" Height="Auto"
+                    MinHeight="{Binding RecipesDetails.MinHeight}"
+                    MaxHeight="{Binding RecipesDetails.MaxHeight}"
+                    MinWidth="{Binding RecipesDetails.MinWidth}"
+                    MaxWidth="{Binding RecipesDetails.MaxWidth}"
+                    Visibility="{Binding RecipesDetails.IsVisible, Converter={StaticResource BooleanToVisibility}}">
+
+                <Border BorderBrush="Navy" BorderThickness="3"
+                        Background="LightSteelBlue">
+
+                    <Grid Margin="2,2,2,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="4"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               FontWeight="Bold"
+                               Content="Recipes"/>
+
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Width="25"
+                                FontWeight="Bold"
+                                Content="X"
+                                Click="CloseRecipesWindow_OnClick">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <DataGrid Grid.Row="2" Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  ItemsSource="{Binding CurrentPlayer.Recipes}"
+                                  AutoGenerateColumns="False"
+                                  HeadersVisibility="Column"
+                                  VerticalScrollBarVisibility="Auto"
+                                  MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=MaxHeight}"
+                                  Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=ActualWidth}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name"
+                                                    Binding="{Binding Name, Mode=OneWay}"
+                                                    Width="*">
+                                    <DataGridTextColumn.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="ToolTip" 
+                                                    Value="{Binding ToolTipContents}"/>
+                                        </Style>
+                                    </DataGridTextColumn.CellStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn MinWidth="75">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="OnClick_Craft"
+                                                    Width="55"
+                                                    Content="Craft"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
 
@@ -293,68 +444,10 @@
 
         </Grid>
 
-        <!-- Inventory, Quests, and Recipes -->
-        <Grid Grid.Row="2" Grid.Column="0"
-              Background="BurlyWood"
-              ZIndex="1">
-
-            <TabControl x:Name="PlayerDataTabControl">
-                <TabItem Header="Quests"
-                         x:Name="QuestsTabItem">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}"
-                              AutoGenerateColumns="False"
-                              HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"
-                                                Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
-                                                Width="*">
-                                <DataGridTextColumn.CellStyle>
-                                    <Style TargetType="DataGridCell">
-                                        <Setter Property="ToolTip" 
-                                                Value="{Binding PlayerQuest.ToolTipContents}"/>
-                                    </Style>
-                                </DataGridTextColumn.CellStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Done?"
-                                                Binding="{Binding IsCompleted, Mode=OneWay}"
-                                                Width="Auto"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-
-                <TabItem Header="Recipes"
-                         x:Name="RecipesTabItem">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes}"
-                              AutoGenerateColumns="False"
-                              HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name"
-                                                Binding="{Binding Name, Mode=OneWay}"
-                                                Width="*">
-                                <DataGridTextColumn.CellStyle>
-                                    <Style TargetType="DataGridCell">
-                                        <Setter Property="ToolTip" 
-                                                Value="{Binding ToolTipContents}"/>
-                                    </Style>
-                                </DataGridTextColumn.CellStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn MinWidth="75">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Click="OnClick_Craft"
-                                                Width="55"
-                                                Content="Craft"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </TabItem>
-            </TabControl>
-        </Grid>
-
         <!-- Action controls -->
-        <Grid Grid.Row="2" Grid.Column="1"
+        <Grid Grid.Row="2" Grid.Column="0"
+              Grid.ColumnSpan="2"
+
               Background="Lavender"
               ZIndex="1">
 
