@@ -106,6 +106,7 @@ namespace WPFUI
             _userInputActions.Add(Key.D, () => _gameSession.MoveEast());
             _userInputActions.Add(Key.Z, () => _gameSession.AttackCurrentMonster());
             _userInputActions.Add(Key.C, () => _gameSession.UseCurrentConsumable());
+            _userInputActions.Add(Key.P, () => _gameSession.PlayerDetails.IsVisible = !_gameSession.PlayerDetails.IsVisible);
             _userInputActions.Add(Key.I, () => _gameSession.InventoryDetails.IsVisible = !_gameSession.InventoryDetails.IsVisible);
             _userInputActions.Add(Key.Q, () => _gameSession.QuestDetails.IsVisible = !_gameSession.QuestDetails.IsVisible);
             _userInputActions.Add(Key.R, () => _gameSession.RecipesDetails.IsVisible = !_gameSession.RecipesDetails.IsVisible);
@@ -186,6 +187,11 @@ namespace WPFUI
                     _gameSession.CurrentLocation.XCoordinate, 
                     _gameSession.CurrentLocation.YCoordinate), saveFileDialog.FileName);
             }
+        }
+
+        private void ClosePlayerDetailsWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession.PlayerDetails.IsVisible = false;
         }
 
         private void CloseInventoryWindow_OnClick(object sender, RoutedEventArgs e)

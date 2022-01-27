@@ -57,6 +57,158 @@
                 x:Name="GameCanvas"
                 ZIndex="99">
 
+            <!-- Player Details -->
+            <Canvas Top="{Binding PlayerDetails.Top}" Left="{Binding PlayerDetails.Left}"
+                    Width="Auto" Height="Auto"
+                    MinHeight="{Binding PlayerDetails.MinHeight}"
+                    MaxHeight="{Binding PlayerDetails.MaxHeight}"
+                    MinWidth="{Binding PlayerDetails.MinWidth}"
+                    MaxWidth="{Binding PlayerDetails.MaxWidth}"
+                    Visibility="{Binding PlayerDetails.IsVisible, Converter={StaticResource BooleanToVisibility}}">
+
+                <Border BorderBrush="Navy" BorderThickness="3"
+                        Background="LightSteelBlue">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="4"/>
+                            <RowDefinition Height="60"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               FontWeight="Bold"
+                               Content="Player Details"/>
+
+                        <Button Grid.Row="0" Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                Width="25"
+                                FontWeight="Bold"
+                                Content="X"
+                                Click="ClosePlayerDetailsWindow_OnClick">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <!-- Sets the background color for the two player data rows -->
+                        <Border Grid.Row="2" Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Grid.RowSpan="2"
+                                Background="WhiteSmoke">
+                        </Border>
+
+                        <!-- Player level and name -->
+                        <Canvas Grid.Row="2" Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                HorizontalAlignment="Left"
+                                MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=MaxHeight}"
+                                Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                          AncestorType={x:Type Canvas}},Path=ActualWidth}">
+
+                            <Ellipse Canvas.Top="3" Canvas.Left="3"
+                                     Width="50"
+                                     Height="50"
+                                     StrokeThickness="1"
+                                     Stroke="SteelBlue"/>
+
+                            <Ellipse Canvas.Top="5" Canvas.Left="5"
+                                     Width="46"
+                                     Height="46"
+                                     StrokeThickness="1"
+                                     Stroke="SteelBlue"/>
+
+                            <Label Canvas.Top="5" Canvas.Left="5"
+                                   Width="46"
+                                   HorizontalContentAlignment="Center"
+                                   VerticalContentAlignment="Center"
+                                   FontSize="18pt"
+                                   FontWeight="Bold"
+                                   Content="{Binding CurrentPlayer.Level}"/>
+
+                            <Label Canvas.Top="5" Canvas.Left="55"
+                                   Width="200"
+                                   FontSize="18pt"
+                                   FontWeight="Bold"
+                                   Content="{Binding CurrentPlayer.Name}"/>
+
+                        </Canvas>
+
+                        <Grid Grid.Row="3" Grid.Column="0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="5,5,5,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0"
+                                   FontWeight="Bold"
+                                   Content="Exp:"/>
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   Content="{Binding CurrentPlayer.ExperiencePoints}"/>
+
+                            <Label Grid.Row="1" Grid.Column="0"
+                                   FontWeight="Bold"
+                                   Content="Gold:"/>
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Content="{Binding CurrentPlayer.Gold}"/>
+
+                            <Label Grid.Row="2" Grid.Column="0"
+                                   FontWeight="Bold"
+                                   Content="HP:"/>
+                            <Label Grid.Row="2" Grid.Column="1"
+                                   Content="{Binding CurrentPlayer.HitPoints}"/>
+                        </Grid>
+
+                        <!-- Player Attributes -->
+                        <ListBox Grid.Row="3" Grid.Column="1"
+                                 Margin="5,5,5,5"
+                                 ItemsSource="{Binding CurrentPlayer.Attributes}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition SharedSizeGroup="Description"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding DisplayName}" 
+                                                       HorizontalAlignment="Left"
+                                                       MinWidth="100"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition SharedSizeGroup="ModifiedValue"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding ModifiedValue}"
+                                                       HorizontalAlignment="Right"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                    </Grid>
+
+                </Border>
+
+            </Canvas>
+
             <!-- Player Inventory Details -->
             <Canvas Top="{Binding InventoryDetails.Top}" Left="{Binding InventoryDetails.Left}"
                     Width="Auto" Height="Auto"
@@ -281,68 +433,9 @@
 
         </Canvas>
 
-        <!-- Player stats -->
-        <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine"
-              ZIndex="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Hit points:"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CurrentHitPoints}"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Gold:"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="XP:"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Level:"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
-
-            <!-- Player Attributes -->
-            <ListBox Grid.Row="5" Grid.Column="0"
-                      Grid.ColumnSpan="2"
-                      Background="Aquamarine"
-                      BorderThickness="0"
-                      Grid.IsSharedSizeScope="True"
-                      ItemsSource="{Binding CurrentPlayer.Attributes}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition SharedSizeGroup="Description"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding DisplayName}" 
-                                           HorizontalAlignment="Left"
-                                           MinWidth="100"/>
-                            </Grid>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition SharedSizeGroup="ModifiedValue"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="{Binding ModifiedValue}"
-                                           HorizontalAlignment="Right"/>
-                            </Grid>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-        </Grid>
-
         <!-- Gameplay -->
-        <Grid Grid.Row="1" Grid.Column="1"
+        <Grid Grid.Row="1" Grid.Column="0"
+              Grid.ColumnSpan="2"
               Background="Beige"
               ZIndex="1">
             <Grid.RowDefinitions>
@@ -462,7 +555,7 @@
 
             <!-- Combat Controls -->
             <Grid Grid.Row="0" Grid.Column="0"
-                  HorizontalAlignment="Center"
+                  HorizontalAlignment="Right"
                   VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
