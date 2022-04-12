@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using SOSCSRPG.Services.Factories;
 using SOSCSRPG.Models;
@@ -8,7 +10,7 @@ using SOSCSRPG.Core;
 
 namespace SOSCSRPG.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : INotifyPropertyChanged, IDisposable
     {
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
 
@@ -90,10 +92,15 @@ namespace SOSCSRPG.ViewModels
         [JsonIgnore]
         public Trader CurrentTrader { get; private set; }
 
+        [JsonIgnore]
+        public ObservableCollection<string> GameMessages { get; } =
+            new ObservableCollection<string>();
+
         public PopupDetails PlayerDetails { get; set; }
         public PopupDetails InventoryDetails { get; set; }
         public PopupDetails QuestDetails { get; set; }
         public PopupDetails RecipesDetails { get; set; }
+        public PopupDetails GameMessagesDetails { get; set; }
 
         [JsonIgnore]
         public bool HasLocationToNorth =>
@@ -171,6 +178,19 @@ namespace SOSCSRPG.ViewModels
                 MinWidth = 250,
                 MaxWidth = 400
             };
+
+            GameMessagesDetails = new PopupDetails
+            {
+                IsVisible = false,
+                Top = 250,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 350,
+                MaxWidth = 400
+            };
+
+            _messageBroker.OnMessageRaised += OnGameMessageRaised;
         }
 
         public void MoveNorth()
@@ -208,6 +228,16 @@ namespace SOSCSRPG.ViewModels
         private void PopulateGameDetails()
         {
             GameDetails = GameDetailsService.ReadGameDetails();
+        }
+
+        private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
+        {
+            if (GameMessages.Count > 250)
+            {
+                GameMessages.RemoveAt(0);
+            }
+
+            GameMessages.Add(e.Message);
         }
 
         private void CompleteQuestsAtLocation()
@@ -353,6 +383,12 @@ namespace SOSCSRPG.ViewModels
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
         {
             _messageBroker.RaiseMessage($"You are now level {CurrentPlayer.Level}!");
+        }
+
+        public void Dispose()
+        {
+            _currentBattle?.Dispose();
+            _messageBroker.OnMessageRaised -= OnGameMessageRaised;
         }
     }
 }

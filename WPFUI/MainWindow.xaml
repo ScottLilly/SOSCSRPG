@@ -431,6 +431,67 @@
 
             </Canvas>
 
+            <!-- Game Messages -->
+            <Canvas Top="{Binding GameMessagesDetails.Top}" Left="{Binding GameMessagesDetails.Left}"
+                    Width="Auto" Height="Auto"
+                    MinHeight="{Binding GameMessagesDetails.MinHeight}"
+                    MaxHeight="{Binding GameMessagesDetails.MaxHeight}"
+                    MinWidth="{Binding GameMessagesDetails.MinWidth}"
+                    MaxWidth="{Binding GameMessagesDetails.MaxWidth}"
+                    Visibility="{Binding GameMessagesDetails.IsVisible, Converter={StaticResource BooleanToVisibility}}">
+
+                <Border BorderBrush="Navy" BorderThickness="3"
+                        Background="LightSteelBlue">
+
+                    <Grid Margin="2,2,2,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="4"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               FontWeight="Bold"
+                               Content="Game Messages"/>
+
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Width="25"
+                                FontWeight="Bold"
+                                Content="X"
+                                Click="CloseGameMessagesDetailsWindow_OnClick">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <FlowDocumentScrollViewer
+                            Grid.Row="2" Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor,
+                                                AncestorType={x:Type Canvas}},Path=MaxHeight}"
+                            Width="{Binding RelativeSource={RelativeSource FindAncestor,
+                                            AncestorType={x:Type Canvas}},Path=ActualWidth}"
+                            x:Name="GameMessagesFlowDocumentScrollViewer" >
+                            <FlowDocument Background="WhiteSmoke">
+                                <Paragraph FontFamily="Calibri">
+                                    <ItemsControl ItemsSource="{Binding GameMessages, Mode=OneWay}" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </FlowDocumentScrollViewer>
+
+                    </Grid>
+
+                </Border>
+
+            </Canvas>
+
         </Canvas>
 
         <!-- Gameplay -->
@@ -447,24 +508,6 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-
-            <!-- Game Messages -->
-            <Border Grid.Row="0" Grid.Column="0"
-                    Grid.RowSpan="2"
-                    BorderBrush="Gainsboro"
-                    BorderThickness="1">
-
-                <RichTextBox x:Name="GameMessages"
-                             Background="Beige"
-                             VerticalScrollBarVisibility="Auto">
-                    <RichTextBox.Resources>
-                        <Style TargetType="{x:Type Paragraph}">
-                            <Setter Property="Margin" Value="0"/>
-                        </Style>
-                    </RichTextBox.Resources>
-                </RichTextBox>
-
-            </Border>
 
             <!-- Location information -->
             <Border Grid.Row="0" Grid.Column="1"
