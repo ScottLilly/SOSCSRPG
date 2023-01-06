@@ -61,7 +61,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Attribute"
-                                    Binding="{Binding DisplayName}"
+                                    Binding="{Binding DisplayName, Mode=OneWay}"
                                     Width="*"/>
                 <DataGridTextColumn Header="Value"
                                     Binding="{Binding BaseValue}"/>
