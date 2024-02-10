@@ -53,6 +53,14 @@ namespace SOSCSRPG.Models
             }
         }
 
+        public void PlayerAttemptToEscapeCombat()
+        {
+            _messageBroker.RaiseMessage("");
+            _messageBroker.RaiseMessage($"You attempt to flee from {_opponent.Name}.");
+
+            AttackPlayer();
+        }
+
         public void Dispose()
         {
             _player.OnActionPerformed -= OnCombatantActionPerformed;

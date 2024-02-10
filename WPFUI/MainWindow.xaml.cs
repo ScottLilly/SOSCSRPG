@@ -45,22 +45,22 @@ namespace WPFUI
 
         private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
-            _gameSession.MoveNorth();
+            _gameSession.AttemptMoveNorth();
         }
 
         private void OnClick_MoveWest(object sender, RoutedEventArgs e)
         {
-            _gameSession.MoveWest();
+            _gameSession.AttemptMoveWest();
         }
 
         private void OnClick_MoveEast(object sender, RoutedEventArgs e)
         {
-            _gameSession.MoveEast();
+            _gameSession.AttemptMoveEast();
         }
 
         private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
         {
-            _gameSession.MoveSouth();
+            _gameSession.AttemptMoveSouth();
         }
 
         private void OnClick_AttackMonster(object sender, RoutedEventArgs e)
@@ -92,10 +92,10 @@ namespace WPFUI
 
         private void InitializeUserInputActions()
         {
-            _userInputActions.Add(Key.W, () => _gameSession.MoveNorth());
-            _userInputActions.Add(Key.A, () => _gameSession.MoveWest());
-            _userInputActions.Add(Key.S, () => _gameSession.MoveSouth());
-            _userInputActions.Add(Key.D, () => _gameSession.MoveEast());
+            _userInputActions.Add(Key.W, () => _gameSession.AttemptMoveNorth());
+            _userInputActions.Add(Key.A, () => _gameSession.AttemptMoveWest());
+            _userInputActions.Add(Key.S, () => _gameSession.AttemptMoveSouth());
+            _userInputActions.Add(Key.D, () => _gameSession.AttemptMoveEast());
             _userInputActions.Add(Key.Z, () => _gameSession.AttackCurrentMonster());
             _userInputActions.Add(Key.C, () => _gameSession.UseCurrentConsumable());
             _userInputActions.Add(Key.P, () => _gameSession.PlayerDetails.IsVisible = !_gameSession.PlayerDetails.IsVisible);
