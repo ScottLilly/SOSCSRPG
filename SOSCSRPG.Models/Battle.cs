@@ -29,7 +29,7 @@ namespace SOSCSRPG.Models
             _opponent.OnKilled += OnOpponentKilled;
 
             _messageBroker.RaiseMessage("");
-            _messageBroker.RaiseMessage($"You see a {_opponent.Name} here!");
+            _messageBroker.RaiseMessage($"A {_opponent.Name} appears!");
 
             if(FirstAttacker(_player, _opponent) == Combatant.Opponent)
             {

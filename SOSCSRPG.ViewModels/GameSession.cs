@@ -225,9 +225,9 @@ namespace SOSCSRPG.ViewModels
             }
         }
 
-        private void MoveTo(int xCoordinate, int yCoordinate) {
+        private void MoveTo(int xCoordinate, int yCoordinate)
+        {
             _currentBattle?.PlayerAttemptToEscapeCombat();
-            _currentBattle?.Dispose();
 
 			CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
 		}
@@ -383,8 +383,19 @@ namespace SOSCSRPG.ViewModels
 
         private void OnCurrentMonsterKilled(object sender, System.EventArgs eventArgs)
         {
-            // Get another monster to fight
-            CurrentMonster = MonsterFactory.GetMonsterFromLocation(CurrentLocation);
+            // 2/3 Chance another monster appears to fight
+            if (DiceService.Instance.Roll(3).Value > 1)
+            {
+                CurrentMonster = MonsterFactory.GetMonsterFromLocation(CurrentLocation);
+            }
+            else
+            {
+                _currentBattle.Dispose();
+                CurrentMonster = null;
+
+                _messageBroker.RaiseMessage("");
+                _messageBroker.RaiseMessage("The area seems quiet, for now.");
+            }
         }
 
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
