@@ -193,37 +193,44 @@ namespace SOSCSRPG.ViewModels
             _messageBroker.OnMessageRaised += OnGameMessageRaised;
         }
 
-        public void MoveNorth()
+        public void AttemptMoveNorth()
         {
             if(HasLocationToNorth)
             {
-                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+				MoveTo(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
             }
         }
 
-        public void MoveEast()
+        public void AttemptMoveEast ()
         {
             if(HasLocationToEast)
             {
-                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+				MoveTo(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
             }
         }
 
-        public void MoveSouth()
+        public void AttemptMoveSouth ()
         {
             if(HasLocationToSouth)
             {
-                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+				MoveTo(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
             }
         }
 
-        public void MoveWest()
+        public void AttemptMoveWest ()
         {
             if(HasLocationToWest)
             {
-                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+                MoveTo(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
             }
         }
+
+        private void MoveTo(int xCoordinate, int yCoordinate)
+        {
+            _currentBattle?.PlayerAttemptToEscapeCombat();
+
+			CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
+		}
 
         private void PopulateGameDetails()
         {
@@ -376,8 +383,19 @@ namespace SOSCSRPG.ViewModels
 
         private void OnCurrentMonsterKilled(object sender, System.EventArgs eventArgs)
         {
-            // Get another monster to fight
-            CurrentMonster = MonsterFactory.GetMonsterFromLocation(CurrentLocation);
+            // 2/3 Chance another monster appears to fight
+            if (DiceService.Instance.Roll(3).Value > 1)
+            {
+                CurrentMonster = MonsterFactory.GetMonsterFromLocation(CurrentLocation);
+            }
+            else
+            {
+                _currentBattle.Dispose();
+                CurrentMonster = null;
+
+                _messageBroker.RaiseMessage("");
+                _messageBroker.RaiseMessage("The area seems quiet, for now.");
+            }
         }
 
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
