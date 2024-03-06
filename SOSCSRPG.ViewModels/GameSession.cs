@@ -367,7 +367,10 @@ namespace SOSCSRPG.ViewModels
 
         private void OnPlayerKilled(object sender, System.EventArgs e)
         {
-            _messageBroker.RaiseMessage("");
+            while (GameMessages.Count > 0) 
+            {
+                GameMessages.RemoveAt(0);
+            }
             _messageBroker.RaiseMessage("You have been killed.");
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
