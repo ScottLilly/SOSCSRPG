@@ -14,6 +14,13 @@ namespace SOSCSRPG.Models.Shared
             return Convert.ToInt32(node.AttributeAsString(attributeName));
         }
  
+        public static int OptionalAttributeAsInt(this XmlNode node, string attributeName)
+        {
+            XmlAttribute attribute = node.Attributes?[attributeName];
+
+            return attribute == null ? 0 : Convert.ToInt32(node.AttributeAsString(attributeName));
+        }
+
         public static string AttributeAsString(this XmlNode node, string attributeName)
         {
             XmlAttribute attribute = node.Attributes?[attributeName];

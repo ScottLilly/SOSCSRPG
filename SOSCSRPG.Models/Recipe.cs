@@ -14,6 +14,8 @@ namespace SOSCSRPG.Models
         [JsonIgnore] public List<ItemQuantity> Ingredients { get; }
         [JsonIgnore]
         public List<ItemQuantity> OutputItems { get; }
+        [JsonIgnore]
+        public int StarterQuantity { get; }
 
         [JsonIgnore]
         public string ToolTipContents =>
@@ -25,12 +27,13 @@ namespace SOSCSRPG.Models
             "===========" + Environment.NewLine +
             string.Join(Environment.NewLine, OutputItems.Select(i => i.QuantityItemDescription));
 
-        public Recipe(int id, string name, List<ItemQuantity> ingredients, List<ItemQuantity> outputItems)
+        public Recipe(int id, string name, List<ItemQuantity> ingredients, List<ItemQuantity> outputItems, int starterQuantity = 0)
         {
             ID = id;
             Name = name;
             Ingredients = ingredients;
             OutputItems = outputItems;
+            StarterQuantity = starterQuantity;
         }
     }
 }

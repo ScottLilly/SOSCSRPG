@@ -37,6 +37,16 @@ namespace SOSCSRPG.Services.Factories
             return _standardGameItems.FirstOrDefault(item => item.ItemTypeID == itemTypeID)?.Clone();
         }
 
+        public static GameItem ItemById(int id)
+        {
+            return _standardGameItems.FirstOrDefault(i => i.ItemTypeID == id);
+        }
+
+        public static List<GameItem> StarterItems()
+        {
+            return _standardGameItems.Where(i => i.StarterQuantity > 0).ToList();
+        }
+
         private static void LoadItemsFromNodes(XmlNodeList nodes)
         {
             if(nodes == null)
@@ -53,7 +63,9 @@ namespace SOSCSRPG.Services.Factories
                                  node.AttributeAsInt("ID"),
                                  node.AttributeAsString("Name"),
                                  node.AttributeAsInt("Price"),
-                                 itemCategory == GameItem.ItemCategory.Weapon);
+                                 itemCategory == GameItem.ItemCategory.Weapon,
+                                 null,
+                                 node.OptionalAttributeAsInt("StarterQuantity"));
 
                 if(itemCategory == GameItem.ItemCategory.Weapon)
                 {

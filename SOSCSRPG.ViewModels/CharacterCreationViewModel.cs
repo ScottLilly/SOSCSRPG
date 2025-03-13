@@ -66,12 +66,15 @@ namespace SOSCSRPG.ViewModels
             Player player = new Player(Name, 0, 10, 10, PlayerAttributes, 10);
 
             // Give player default inventory items, weapons, recipes, etc.
-            player.AddItemToInventory(ItemFactory.CreateGameItem(1001));
-            player.AddItemToInventory(ItemFactory.CreateGameItem(2001));
-            player.LearnRecipe(RecipeFactory.RecipeByID(1));
-            player.AddItemToInventory(ItemFactory.CreateGameItem(3001));
-            player.AddItemToInventory(ItemFactory.CreateGameItem(3002));
-            player.AddItemToInventory(ItemFactory.CreateGameItem(3003));
+            foreach (GameItem item in ItemFactory.StarterItems())
+            {
+                player.AddItemToInventory(ItemFactory.ItemById(item.ItemTypeID));
+            }
+
+            foreach (Recipe recipe in RecipeFactory.StarterRecipes())
+            {
+                player.LearnRecipe(RecipeFactory.RecipeByID(recipe.ID));
+            }
 
             return player;
         }
