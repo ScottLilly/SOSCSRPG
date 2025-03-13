@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Recipes>
-  <Recipe ID="1">
+  <Recipe ID="1" StarterQuantity="1">
     <Name><![CDATA[Granola bar]]></Name>
     <Ingredients>
       <Item ID="3001" Quantity="1"/>

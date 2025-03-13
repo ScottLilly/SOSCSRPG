@@ -53,7 +53,9 @@ namespace SOSCSRPG.Services.Factories
                 Recipe recipe =
                     new Recipe(node.AttributeAsInt("ID"),
                         node.SelectSingleNode("./Name")?.InnerText ?? "",
-                        ingredients, outputItems);
+                        ingredients,
+                        outputItems,
+                        node.OptionalAttributeAsInt("StarterQuantity"));
 
                 _recipes.Add(recipe);
             }
@@ -62,6 +64,11 @@ namespace SOSCSRPG.Services.Factories
         public static Recipe RecipeByID(int id)
         {
             return _recipes.FirstOrDefault(x => x.ID == id);
+        }
+
+        public static List<Recipe> StarterRecipes()
+        {
+            return _recipes.Where(r => r.StarterQuantity > 0).ToList();
         }
     }
 }
