@@ -10,6 +10,10 @@
         FontSize="11pt"
         Title="{Binding GameDetails.Title}" Height="400" Width="400">
 
+    <Window.Resources>
+        <viewModels:CharacterCreationViewModel x:Key="CharacterCreationViewModel" />
+    </Window.Resources>
+
     <Grid Margin="10,10,10,10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -68,6 +72,7 @@
                 <DataGridTextColumn Header="Modified"
                                     Binding="{Binding ModifiedValue}"
                                     Visibility="{Binding HasRaceAttributeModifiers, 
+                                                 Source={StaticResource CharacterCreationViewModel}, 
                                                  Converter={StaticResource BooleanToVisibilityConverter}}"/>
             </DataGrid.Columns>
 
