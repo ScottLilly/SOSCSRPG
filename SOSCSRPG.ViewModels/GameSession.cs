@@ -312,6 +312,11 @@ namespace SOSCSRPG.ViewModels
 
         public void AttackCurrentMonster()
         {
+            if (CurrentMonster == null)
+            {
+                return;
+            }
+
             _currentBattle?.AttackOpponent();
         }
 
